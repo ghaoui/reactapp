@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "webpack -d && webpack-dev-server --content-base ./ --inline --hot",
+    "start": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base dist/ --inline --hot",
     "build": "webpack -d",
     "build:prod": ""
   },
@@ -20,6 +20,7 @@
     "babel-preset-react": "^6.5.0",
     "css-loader": "^0.23.1",
     "node-sass": "^3.4.2",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router": "^2.0.1",

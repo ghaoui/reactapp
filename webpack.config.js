@@ -1,12 +1,14 @@
 var webpack = require("webpack");
 var path = require("path");
 
-var DIST_DIR = path.resolve(__dirname, "dist");
-var SRC_DIR = path.resolve(__dirname, "src");
+var DIST_DIST = path.resolve(__dirname, "dist");
+var DIST_SRC = path.resolve(__dirname, "src");
 var config = {
-  entry : "./main.js",
+  entry : DIST_SRC + "/main.js",
   output : {
-    filename : "app.js"
+    //path: DIST_DIST ,
+    filename : "./dist/app.js",
+    //publicPath: "/dist/"
   },
   module: {
     loaders: [
@@ -14,6 +16,7 @@ var config = {
         test : /\.jsx?$/,
         loader : 'babel-loader',
         exclude : /(node_modules|bower_components)/,
+        include : DIST_SRC,
         query: {
           presets: ['react', 'es2015']
         }

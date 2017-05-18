@@ -1,20 +1,25 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import PropTypes from 'prop-types';
+import {Router, Route, Link, hashHistory} from 'react-router';
+import Accueil from '../components/Accueil/Accueil.jsx';
+import Commentaire from '../components/Commentaire/Commentaire.jsx';
 
-export default class App extends React.Component {
-  constructor(props){
-    super(props);
-    console.log(props);
-    this.state = {message: props.nom};
-    this.clic = this.clic.bind(this);
-  }
+export default class App extends React.Component{
 
-  clic(){
-    console.log(this);
-    this.setState({message: "salut lalalal"});
-  }
+
+
 
   render (){
-    return <h1 onClick={this.clic}>{this.state.message}</h1>;
+    return (
+      <section>
+
+        <Router history={hashHistory}>
+          <Route path="/" component={Accueil} />
+          <Route path="/commentaire" component={Commentaire} />
+          <Route path="*" component={Accueil} />
+        </Router>
+      </section>
+    );
   }
 }
